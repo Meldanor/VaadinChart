@@ -38,8 +38,9 @@ public abstract class CircleChart extends Chart {
 
     public void addDataSeries(Collection<CircleDataSeries> series) {
         getState().getSeries().addAll(series);
-//        CircleChartState state = getState(false);
-//        series.forEach(s -> state.getSeries().put(s.getLabel(), s));
-//        markAsDirty();
+    }
+
+    public void removeDataSeries(String label) {
+        getState().getSeries().removeIf(s -> s.getLabel().equals(label));
     }
 }
