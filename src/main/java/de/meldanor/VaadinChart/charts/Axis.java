@@ -4,15 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import de.meldanor.VaadinChart.charts.AxisType.IndexedAxisType;
+import java.util.regex.Pattern;
 
 public class Axis implements Serializable {
 
     private static final long serialVersionUID = -7781862474914998103L;
 
     private String label;
-    private AxisType type;
 
     private List<DataSeries> dataSeries;
     private boolean show;
@@ -20,13 +18,15 @@ public class Axis implements Serializable {
     private Object max;
     private Object min;
 
+    @SuppressWarnings("unused")
+    private String[] formatStrings;
+
     protected Axis() {
         // For Serialization
-        this("x", new IndexedAxisType());
+        this("");
     }
 
-    public Axis(final String label, final AxisType type) {
-        this.type = type;
+    public Axis(final String label) {
         this.label = label;
 
         this.show = true;
@@ -49,19 +49,8 @@ public class Axis implements Serializable {
     /**
      * @deprecated This is just for Vaadin - for nobody else!
      */
-    public void setType(AxisType type) {
-        throw new UnsupportedOperationException("This is just for Vaadin - for nobody else!");
-    }
-
-    /**
-     * @deprecated This is just for Vaadin - for nobody else!
-     */
     public void setDataSeries(List<DataSeries> dataSeries) {
         throw new UnsupportedOperationException("This is just for Vaadin - for nobody else!");
-    }
-
-    public AxisType getType() {
-        return type;
     }
 
     public void addDataSeries(DataSeries dataSeries) {
@@ -94,6 +83,27 @@ public class Axis implements Serializable {
 
     public Object getMin() {
         return min;
+    }
+
+    private static final Pattern SPLIT_PATTERN = Pattern.compile("\\{1\\}");
+
+    public void setFormat(String format) {
+        // format.split(regex)
+        this.formatStrings = SPLIT_PATTERN.split(format);
+    }
+
+    /**
+     * @deprecated This is just for Vaadin - for nobody else!
+     */
+    public void setFormatStrings(String[] formatStrings) {
+        throw new UnsupportedOperationException("This is just for Vaadin - for nobody else!");
+    }
+
+    /**
+     * @deprecated This is just for Vaadin - for nobody else!
+     */
+    public String[] getFormatStrings() {
+        throw new UnsupportedOperationException("This is just for Vaadin - for nobody else!");
     }
 
 }
