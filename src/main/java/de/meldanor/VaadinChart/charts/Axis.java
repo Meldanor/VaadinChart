@@ -5,14 +5,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import de.meldanor.VaadinChart.charts.AxisType.IndexedAxisType;
-
 public class Axis implements Serializable {
 
     private static final long serialVersionUID = -7781862474914998103L;
 
     private String label;
-    private AxisType type;
 
     private List<DataSeries> dataSeries;
     private boolean show;
@@ -22,11 +19,10 @@ public class Axis implements Serializable {
 
     protected Axis() {
         // For Serialization
-        this("x", new IndexedAxisType());
+        this("");
     }
 
-    public Axis(final String label, final AxisType type) {
-        this.type = type;
+    public Axis(final String label) {
         this.label = label;
 
         this.show = true;
@@ -46,11 +42,8 @@ public class Axis implements Serializable {
         throw new UnsupportedOperationException("This is just for Vaadin - for nobody else!");
     }
 
-    /**
-     * @deprecated This is just for Vaadin - for nobody else!
-     */
-    public void setType(AxisType type) {
-        throw new UnsupportedOperationException("This is just for Vaadin - for nobody else!");
+    public List<DataSeries> getDataSeries() {
+        return dataSeries;
     }
 
     /**
@@ -58,10 +51,6 @@ public class Axis implements Serializable {
      */
     public void setDataSeries(List<DataSeries> dataSeries) {
         throw new UnsupportedOperationException("This is just for Vaadin - for nobody else!");
-    }
-
-    public AxisType getType() {
-        return type;
     }
 
     public void addDataSeries(DataSeries dataSeries) {
@@ -95,5 +84,4 @@ public class Axis implements Serializable {
     public Object getMin() {
         return min;
     }
-
 }

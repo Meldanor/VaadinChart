@@ -39,4 +39,16 @@ public class XYChart extends Chart {
         getState().getSeries().removeIf(s -> s.getLabel().equals(label));
     }
 
+    public void setXAxis(XAxis axis) {
+        getState().setXAxis(axis);
+    }
+
+    public void setLeftYAxis(Axis axis) {
+        getState().setLeftYAxis(axis);
+    }
+
+    public void setRightYAxis(Axis axis) {
+        getState().setRightYAxis(axis);
+    }
+
 }
