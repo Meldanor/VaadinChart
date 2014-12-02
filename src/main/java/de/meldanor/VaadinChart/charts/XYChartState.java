@@ -3,6 +3,9 @@ package de.meldanor.VaadinChart.charts;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The state for an {@link XYChart}.
+ */
 public class XYChartState extends ChartState {
 
     private static final long serialVersionUID = -7104324979504083367L;

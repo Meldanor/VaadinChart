@@ -5,6 +5,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * A special version of an {@link Axis} to display values for the X-axis of an
+ * {@link XYChart}.
+ */
 public class XAxis extends Axis {
 
     private static final long serialVersionUID = 5637923497217237145L;
@@ -12,6 +16,9 @@ public class XAxis extends Axis {
 
     private String type;
 
+    /**
+     * Standard X-axis. The index of the value in a data series is the x value.
+     */
     public XAxis() {
         // For serialization
         this(AXIS_TYPE_INDEXED);
@@ -32,6 +39,9 @@ public class XAxis extends Axis {
         throw new UnsupportedOperationException("This is just for Vaadin - for nobody else!");
     }
 
+    /**
+     * {@link XAxis} with category data like names or countries.
+     */
     public static class CategoryXAxis extends XAxis {
 
         private static final String AXIS_TYPE_CATEGORY = "category";
@@ -50,6 +60,10 @@ public class XAxis extends Axis {
         }
     }
 
+    /**
+     * An {@link XAxis} with time data. <br>
+     * Important: Not yet implemented!
+     */
     public static class TimeseriesXAxis extends XAxis {
 
         private static final String AXIS_TYPE_TIMESERIES = "timeseries";

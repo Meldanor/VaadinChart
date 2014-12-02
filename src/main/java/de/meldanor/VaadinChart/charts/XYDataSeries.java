@@ -1,5 +1,9 @@
 package de.meldanor.VaadinChart.charts;
 
+/**
+ * A {@link DataSeries} with a specific display type , the
+ * {@link DataSeriesType}.
+ */
 public class XYDataSeries extends DataSeries {
 
     private static final long serialVersionUID = 2295028135617028321L;
@@ -14,7 +18,6 @@ public class XYDataSeries extends DataSeries {
     public XYDataSeries(final String label, final DataSeriesType type) {
         super(label);
         this.type = type.getC3String();
-
     }
 
     public String getType() {

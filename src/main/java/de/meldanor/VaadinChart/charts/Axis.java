@@ -5,6 +5,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * An axis for a {@link XYChart} with a max and min value and a label. Every
+ * axis can have multiple {@link DataSeries}.
+ * 
+ * @see XAxis
+ */
 public class Axis implements Serializable {
 
     private static final long serialVersionUID = -7781862474914998103L;
